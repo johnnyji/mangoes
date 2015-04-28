@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
+  before_action :restrict_access
   before_action :find_movie, only: [:new, :create]
+
   def new
     @review = @movie.reviews.build
   end

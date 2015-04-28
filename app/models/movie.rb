@@ -10,6 +10,11 @@ class Movie < ActiveRecord::Base
 
   before_save :titleize_movie
 
+  def average_rating
+    average_review = reviews.sum(:rating_out_of_ten) / reviews.size
+    average_review == 0 ? "No reviews yet" : average_review
+  end
+
   private
 
   def titlelize_movie

@@ -8,5 +8,12 @@ class ApplicationController < ActionController::Base
   rescue ActiveRecord::RecordNotFound
   end
 
+  def restrict_access
+    unless current_user
+      flash[:alert] = "You must be logged in first!"
+      redirect_to new_session_path
+    end
+  end
+
   helper_method :current_user
 end
