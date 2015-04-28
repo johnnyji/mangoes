@@ -4,21 +4,24 @@ class Movie < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :director, presence: true
   validates :runtime_in_minutes, numericality: { only_integer: true }
-  validates :description, presence: true, length: { minimum: 3 }
+  validates :description, presence: true
   validates :poster_image_url, presence: true
   validate :release_date_is_in_the_future
 
   before_save :titleize_movie
 
   def average_rating
-    average_review = reviews.sum(:rating_out_of_ten) / reviews.size
-    average_review == 0 ? "No reviews yet" : average_review
+    if reviews.count > 0
+      "#{reviews.sum(:rating_out_of_ten) / reviews.size}/10"
+    else
+      "No reviews yet"
+    end
   end
 
   private
 
-  def titlelize_movie
-    title = title.titleize
+  def titleize_movie
+    title.titleize
   end
 
   def release_date_is_in_the_future

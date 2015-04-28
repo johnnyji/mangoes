@@ -1,9 +1,8 @@
-<%= form_for(@movie.reviews.build, url: new_movie_review(@movie)) do |f| %>
-
-  <%= @review.errors[:text].first %>
+<%= form_for(@review, url: movie_reviews_path(@movie)) do |f| %>
+  <%= f.object.errors[:text].first %>
   <%= f.text_area :text, placeholder: "Your review" %>
 
-  <%= @review.errors[:text].first %>
+  <%= f.object.errors[:text].first %>
   <%= f.number_field :rating_out_of_ten, placeholder: "Your rating out of 10" %>
 
   <%= f.submit %>
