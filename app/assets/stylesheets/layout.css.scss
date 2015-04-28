@@ -1,0 +1,40 @@
+@import "appwide";
+
+header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 80px;
+  background-color: tomato;
+  .header-left {
+    position: relative;
+    max-width: 50%;
+    left: 0;
+    height: 100%;
+    background-color: yellow;
+    text-align: center;
+    a {
+      color: $white;
+      font-size: 3em;
+    }
+  }
+  .header-right {
+    position: absolute;
+    top: 50%;
+    right: 1em;
+  }
+}
+
+section {
+  position: relative;
+  top: 175px;
+  margin: 0 auto;
+  width: 700px;
+  @include medium-viewport {
+    width: 500px;
+  }
+  @include mobile-viewport {
+    width: 370px;
+  }
+}

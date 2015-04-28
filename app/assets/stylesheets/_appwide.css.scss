@@ -1,0 +1,82 @@
+// VIEWPORT MIXINS
+
+@mixin mobile-viewport {
+  @media (max-width: 400px) {
+    @content;
+  }
+}
+
+@mixin medium-viewport {
+  @media (min-width: 401px) and (max-width: 700px) {
+    @content;
+  }
+}
+
+//  MIXINS
+
+@mixin position-center {
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+@mixin position-x {
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+@mixin position-y {
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin scale-up {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+@mixin transition {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+//  VARIABLES
+
+$test-color: #dbdbdb;
+$text-color: #202020;
+$white : #fff;
+$off-white: #ececec;
+$gray: #BFBFBF;
+$dark-gray: #3e3935;
+$link-color: #7f8c8d;
+$link-hover-color: #446CB3;
+$primary-sfu: #c0392b;
+$secondary-sfu: #e74c3c;
+$background-color: #bdc3c7;
+
+// APP WIDE
+
+body, html {
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  font-family: inherit;
+  a {
+    text-decoration: none;
+    &:hover, &:focus, &:active, &:visited {
+      text-decoration: none;
+    }
+  }
+}

@@ -7,8 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <div class="header-left">
+      <%= link_to "Rotten Mangoes", root_path %>
+    </div>
+    <div class="header-right"><%= link_to "Submit a new movie!", new_movie_path %></div>
+  </header>
 
-<%= yield %>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value) %>
+  <% end %>
 
+  <section>
+    <%= yield %>
+  </section>
 </body>
 </html>
