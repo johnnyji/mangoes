@@ -2,5 +2,11 @@
   <div class="header-left">
     <%= link_to "Rotten Mangoes", root_path %>
   </div>
-  <div class="header-right"><%= link_to "Submit a new movie!", new_movie_path %></div>
+  <div class="header-right">
+    <% if current_user %>
+      <p><%= current_user.name %> - <%= link_to "Signout", sessions_path, method: :delete %></p>
+    <% else %>
+      <p><%= link_to "Sign up", new_user_path %> | <%= link_to "Login", new_session_path %></p>
+    <% end %>
+  </div>
 </header>
