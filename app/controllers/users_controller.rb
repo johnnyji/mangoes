@@ -5,10 +5,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    binding.pry
     if @user.save
-      binding.pry
-      sessions[:user_id] = @user.id
+      session[:user_id] = @user.id
       redirect_to movies_path, notice: "Welcome! #{@user.name}"
     else
       flash.now[:alert] = "Something went wrong..."

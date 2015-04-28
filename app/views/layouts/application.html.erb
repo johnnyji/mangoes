@@ -7,12 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header>
-    <div class="header-left">
-      <%= link_to "Rotten Mangoes", root_path %>
-    </div>
-    <div class="header-right"><%= link_to "Submit a new movie!", new_movie_path %></div>
-  </header>
+  <%= render partial: "layouts/header" %>
 
   <% flash.each do |key, value| %>
     <%= content_tag(:div, value) %>
@@ -21,5 +16,7 @@
   <section>
     <%= yield %>
   </section>
+
+  <%= render partial: "layouts/footer" %>
 </body>
 </html>
