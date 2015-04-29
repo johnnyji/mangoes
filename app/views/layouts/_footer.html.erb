@@ -1,12 +1,17 @@
 <footer>
-  <% if current_user %>
-    <% if current_user.admin %>
-      <p><%= link_to "Admin Management", admin_users_path %></p>
+  <div class="top">
+    <% if current_user %>
+      <% if current_user.admin? %>
+        <%= link_to "Admin Management", admin_users_path, class: "admin-page-link" %>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <% if previewing_user %>
-    <small>previewing as: (<%= previewing_user.name %>) | <%= link_to "Back to Admin", back_as_admin_path %>
-    </small>
-  <% end %>
+    <% if previewing_user %>
+      <small>previewing as: (<%= previewing_user.name %>) | <%= link_to "Back to Admin", back_as_admin_path %>
+      </small>
+    <% end %>
+  </div>
+  <div class="credits">
+    <p>&copy; Mangoes | 2015 All Rights Reserved | Proudly produced, ripen, and maintained fresh by <a href="http://www.johnnyji.com/" target="_blank">Johnny Ji</a></p>
+  </div>
 </footer>
