@@ -11,11 +11,19 @@
   h1 {
     text-align: center;
   }
+  .each-admin {
+    padding-bottom: 1em;
+    border-bottom: 1px solid green;
+  }
 }
 .admin-users {
   padding: 1em;
   background-color: lightgreen;
   h1 {
     text-align: center;
+  }
+  .each-user {
+    padding-bottom: 1em;
+    border-bottom: 1px solid red;
   }
 }

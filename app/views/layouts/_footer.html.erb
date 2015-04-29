@@ -4,4 +4,9 @@
       <p><%= link_to "Admin Management", admin_users_path %></p>
     <% end %>
   <% end %>
+
+  <% if previewing_user %>
+    <small>previewing as: (<%= previewing_user.name %>) | <%= link_to "Back to Admin", back_as_admin_path %>
+    </small>
+  <% end %>
 </footer>

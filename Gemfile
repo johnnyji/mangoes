@@ -14,6 +14,7 @@ gem 'rmagick'
 gem 'mini_magick'
 gem 'carrierwave', '~> 0.10.0'
 gem 'will_paginate', '~> 3.0.7'
+gem 'pretender', '~> 0.1.0'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

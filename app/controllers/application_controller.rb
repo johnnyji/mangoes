@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
   rescue ActiveRecord::RecordNotFound
   end
 
+  def previewing_user
+    @previewing_user ||= User.find(session[:preview_user_id]) if session[:preview_user_id]
+  end
+
   def restrict_access
     unless current_user
       flash[:alert] = "You must be logged in first!"
@@ -17,5 +21,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  helper_method :admin_in_preview_mode
   helper_method :current_user
+  helper_method :previewing_user
 end

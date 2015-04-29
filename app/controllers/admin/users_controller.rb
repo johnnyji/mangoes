@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::ApplicationController
   before_action :require_admin
-  before_action :find_user, except: [:index]
+  before_action :find_user, only: [:show, :edit, :update, :delete, :destroy]
 
   def index
     @admins = User.where(admin: true).where.not(id: current_user.id).order('created_at DESC')
@@ -28,6 +28,17 @@ class Admin::UsersController < Admin::ApplicationController
   def destroy
     @user.destroy
     redirect_to admin_users_path, notice: "User has been successfully deleted"
+  end
+
+  def preview_user
+    @preview_user = User.find(params[:id])
+    session[:preview_user_id] = @preview_user.id
+    redirect_to movies_path, notice: "You are now in preview as #{@preview_user.name}"
+  end
+
+  def back_as_admin
+    session[:preview_user_id] = nil
+    redirect_to admin_users_path, notice: "You are back as #{current_user.name}"
   end
 
   private

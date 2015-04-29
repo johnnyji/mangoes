@@ -1,23 +1,28 @@
 <div class="admin-admins">
   <h1>Admins</h1>
   <% @admins.each do |admin| %>
-    <p>Name: <%= admin.name %></p>
-    <p>Email: <%= admin.email %></p>
-    <p>
-      <%= link_to "Edit", edit_admin_user_path(admin) %> | 
-      <%= link_to "Delete", admin_user_path(admin), method: :delete, confirm: "Delete #{admin.name}?"%>
-    </p>
+    <div class="each-admin">
+      <p>Name: <%= admin.name %></p>
+      <p>Email: <%= admin.email %></p>
+      <p>
+        <%= link_to "Edit", edit_admin_user_path(admin) %> | 
+        <%= link_to "Delete", admin_user_path(admin), method: :delete, confirm: "Delete #{admin.name}?"%>
+      </p>
+    </div>
   <% end %>
 </div>
 <div class="admin-users">
   <h1>Users</h1>
   <% @users.each do |user| %>
-    <p>Name: <%= user.name %></p>
-    <p>Email: <%= user.email %></p>
-    <p>
-      <%= link_to "Edit", edit_admin_user_path(user) %> | 
-      <%= link_to "Delete", admin_user_path(user), method: :delete, confirm: "Delete #{user.name}?"%>
-    </p>
+    <div class="each-user">
+      <p>Name: <%= user.name %></p>
+      <p>Email: <%= user.email %></p>
+      <p>
+        <%= link_to "Edit", edit_admin_user_path(user) %> | 
+        <%= link_to "Delete", admin_user_path(user), method: :delete, data: {confirm: "Delete #{user.name}?"} %> |
+        <%= link_to "Preview user", admin_preview_user_path(user.id) %>
+      </p>
+    </div>
   <% end %>
 </div>
 <%= will_paginate @users %>
