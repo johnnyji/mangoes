@@ -19,6 +19,7 @@ gem 'pretender', '~> 0.1.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
+  gem 'letter_opener', '~> 1.3.0'
   gem 'pry', '~> 0.10.1'
   gem 'pry-rails', '~> 0.3.4'
   gem 'pry-nav', '~> 0.2.4'

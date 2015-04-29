@@ -26,6 +26,7 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def destroy
+    UserMailer.deleted_by_admin_email(@user).deliver_now
     @user.destroy
     redirect_to admin_users_path, notice: "User has been successfully deleted"
   end

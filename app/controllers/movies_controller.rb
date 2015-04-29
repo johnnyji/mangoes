@@ -6,6 +6,7 @@ class MoviesController < ApplicationController
   end
 
   def show
+    binding.pry
     @review = @movie.reviews.build
   end
 
@@ -41,9 +42,14 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def search
+    @movies = Movie.search_title(params[:search])
+  end
+
   private
 
   def find_movie
+    binding.pry
     @movie = Movie.find(params[:id])
   end
 

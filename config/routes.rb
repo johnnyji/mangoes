@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'reviews/new'
-
-  get 'reviews/create'
-
   root "movies#index"
   
   resources :movies do
@@ -17,6 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
 
+  match "movies/search", to: "movies#search", as: "movies_search", via: :get
   match "admin/preview_user/:id", to: "admin/users#preview_user", as: "admin_preview_user", via: :get
   match "admin/back_as_admin", to: "admin/users#back_as_admin", as: "back_as_admin", via: :get
 end
