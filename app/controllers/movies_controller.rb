@@ -6,7 +6,6 @@ class MoviesController < ApplicationController
   end
 
   def show
-    binding.pry
     @review = @movie.reviews.build
   end
 
@@ -49,7 +48,6 @@ class MoviesController < ApplicationController
   private
 
   def find_movie
-    binding.pry
     @movie = Movie.find(params[:id])
   end
 
