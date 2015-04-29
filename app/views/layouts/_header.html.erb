@@ -4,7 +4,7 @@
   </div>
   <div class="header-right">
     <% if current_user %>
-      <p>
+      <p class="logged-in-user">
         <%= current_user.name %> - <%= link_to "Signout", session_path(current_user), method: :delete %>
       </p>
     <% else %>

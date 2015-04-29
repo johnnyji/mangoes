@@ -2,6 +2,13 @@
 
 // HEADER
 
+.sticky-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+}
+
 header {
   position: relative;
   left: 0;
@@ -48,12 +55,14 @@ header {
     right: 0;
     height: 100%;
     right: 1em;
-    p {
+    .logged-in-user {
       @include position-y;
       position: absolute;
       top: 50%;
       right: 0;
       margin: 0;
+      font-size: 110%;
+      font-weight: 600;
     }
   }
 }

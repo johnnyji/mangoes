@@ -70,12 +70,14 @@ $white : #FFF;
 $gray: #BFBFBF;
 $medium-gray: #666;
 $dark-gray: #222;
+$text-gray: #464646;
 
 // APP WIDE
 
 body, html {
   box-sizing: border-box;
   font-family: "Hind", sans-serif;
+  color: $text-gray;
   margin: 0;
   @include medium-viewport {
     font-size: 0.95em;
