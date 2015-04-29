@@ -20,7 +20,10 @@ header {
     height: 100%;
     text-align: center;
     a, a:visited, a:focus, a:active {
+      @include position-y;
       @include transition;
+      position: absolute;
+      top: 50%;
       color: $primary-red;
       font-size: 3em;
       font-weight: 600;
@@ -100,9 +103,16 @@ footer {
   }
   .credits {
     position: absolute;
+    @include position-x;
+    width: 100%;
+    left: 50%;
     bottom: 0;
-    left: 0;
-    right: 0;
     text-align: center;
+    @include medium-viewport {
+      width: 90%;
+    }
+    @include mobile-viewport {
+      width: 80%;
+    }
   }
 }

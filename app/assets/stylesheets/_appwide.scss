@@ -3,13 +3,13 @@
 // VIEWPORT MIXINS
 
 @mixin mobile-viewport {
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     @content;
   }
 }
 
 @mixin medium-viewport {
-  @media (min-width: 401px) and (max-width: 700px) {
+  @media (min-width: 501px) and (max-width: 900px) {
     @content;
   }
 }
@@ -77,6 +77,12 @@ body, html {
   box-sizing: border-box;
   font-family: "Hind", sans-serif;
   margin: 0;
+  @include medium-viewport {
+    font-size: 0.95em;
+  }
+  @include mobile-viewport {
+    font-size: 0.87em;
+  }
 }
 
 *, *:before, *:after {
