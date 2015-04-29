@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
-  namespace :admins do
-    resources :users
+  namespace :admin do
+    resources :users, except: [:new, :create]
   end
 
   resources :users, only: [:new, :create]

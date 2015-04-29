@@ -1,3 +1,21 @@
 // Place all the styles related to the admin/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "appwide";
+
+.admin-admins {
+  padding: 1em;
+  margin-bottom: 1em; 
+  background-color: lightgreen;
+  h1 {
+    text-align: center;
+  }
+}
+.admin-users {
+  padding: 1em;
+  background-color: lightgreen;
+  h1 {
+    text-align: center;
+  }
+}

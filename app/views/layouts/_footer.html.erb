@@ -1,3 +1,7 @@
 <footer>
-  hello
+  <% if current_user %>
+    <% if current_user.admin %>
+      <p><%= link_to "Admin Management", admin_users_path %></p>
+    <% end %>
+  <% end %>
 </footer>

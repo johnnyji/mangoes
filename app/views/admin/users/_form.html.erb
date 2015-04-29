@@ -1,0 +1,15 @@
+<%= form_for(@user, url: admin_user_path(@user)) do |f| %>
+  <%= f.object.errors[:first_name].first %>
+  <%= f.text_field :first_name, placeholder: "First Name" %><br>
+
+  <%= f.object.errors[:last_name].first %>
+  <%= f.text_field :last_name, placeholder: "Last Name" %><br>
+
+  <%= f.object.errors[:email].first %>
+  <%= f.text_field :email, placeholder: "Your email" %><br>
+  
+  <%= f.label :admin, "Admin" %>
+  <%= f.check_box :admin %><br>
+
+  <%= f.submit %>
+<% end %>
