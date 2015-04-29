@@ -10,6 +10,9 @@ gem 'turbolinks'
 gem 'jquery-turbolinks', '~> 2.1.0'
 gem 'jbuilder', '~> 2.0'
 gem 'bcrypt-ruby', '~> 3.1.5'
+gem 'rmagick'
+gem 'mini_magick'
+gem 'carrierwave', '~> 0.10.0'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :find_movie, only: [:show, :edit, :update, :delete, :destroy]
+  
   def index
     @movies = Movie.all.order("created_at DESC")
   end
@@ -47,6 +48,6 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie).permit(:title, :director, :runtime_in_minutes, :poster_image_url, :release_date, :description)
+    params.require(:movie).permit(:title, :director, :runtime_in_minutes, :release_date, :description, :image)
   end
 end

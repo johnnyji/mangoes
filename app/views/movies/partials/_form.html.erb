@@ -1,4 +1,4 @@
-<%= form_for @movie do |f| %>
+<%= form_for @movie, html: { multipart: true } do |f| %>
   <%= @movie.errors[:title].first %>
   <%= f.text_field :title, placeholder: "Title" %><br>
 
@@ -11,8 +11,9 @@
   <%= @movie.errors[:runtime_in_minutes].first %>
   <%= f.text_field :runtime_in_minutes, placeholder: "Runtime in minutes" %><br>
 
-  <%= @movie.errors[:poster_image_url].first %>
-  <%= f.text_field :poster_image_url, placeholder: "Link to image" %><br>
+  <%= @movie.errors[:image].first %>
+  <%= f.label :image, value: "Upload an image" %>
+  <%= f.file_field :image %><br>
 
   <%= @movie.errors[:description].first %>
   <%= f.text_area :description, placeholder: "Description" %><br>
