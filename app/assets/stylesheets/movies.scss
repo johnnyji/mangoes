@@ -1,3 +1,54 @@
+@import "appwide";
+// MOVIES INDEX
+
+.submit-movie {
+  margin: 0 auto 3em auto;
+  text-align: center;
+  a {
+    @include transition(0.3s);
+    font-size: 1.5em;
+    padding: 5px 15px;
+    color: $white;
+    background-color: $primary-orange;
+    border-bottom: 5px solid $tertiary-orange;
+    &:hover {
+      background-color: $primary-green;
+      border-bottom: 5px solid $secondary-green;
+    }
+  }
+}
+
+.movie-container {
+  position: relative;
+  top: 0;
+  height: 100%;
+  padding: 0.5em;
+  margin: 0.5em;
+  background-color: $smoke-white;
+  .movie-image {
+    position: relative;
+    display: inline-block;
+    min-height: 100%;
+  }
+  .movie-info {
+    position: relative;
+    display: inline-block;
+    min-height: 100%;
+    margin-left: 10px;
+    .title {
+      position: relative;
+      margin: 0;
+      top: 0;
+      a {
+        @include transition(0.3s);
+        color: $primary-orange;
+        &:hover {
+          color: $tertiary-orange;
+        }
+      }
+    }
+  }
+}
 
 // SEARCH RESULTS PAGE
 

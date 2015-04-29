@@ -33,13 +33,16 @@ class Admin::UsersController < Admin::ApplicationController
 
   def preview_user
     @preview_user = User.find(params[:id])
-    session[:preview_user_id] = @preview_user.id
+    session[:admin_id] = current_user.id
+    session[:user_id] = @preview_user.id
     redirect_to movies_path, notice: "You are now in preview as #{@preview_user.name}"
   end
 
   def back_as_admin
-    session[:preview_user_id] = nil
-    redirect_to admin_users_path, notice: "You are back as #{current_user.name}"
+    admin = User.find(session[:admin_id])
+    session[:user_id] = admin.id
+    session[:admin_id] = nil
+    redirect_to admin_users_path, notice: "You are back as #{admin.name}"
   end
 
   private

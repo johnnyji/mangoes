@@ -1,15 +1,15 @@
 <footer>
   <div class="top">
     <% if current_user %>
-      <% if current_user.admin? %>
+      <% if current_user.admin %>
         <%= link_to "Admin Management", admin_users_path, class: "admin-page-link" %>
       <% end %>
+      <% if admin_in_preview_mode %>
+        <p>Prevewing as <%= current_user.name %></p>
+        <%= link_to "Back to Admin", back_as_admin_path %>
+      <% end %>
     <% end %>
-
-    <% if previewing_user %>
-      <small>previewing as: (<%= previewing_user.name %>) | <%= link_to "Back to Admin", back_as_admin_path %>
-      </small>
-    <% end %>
+    
   </div>
   <div class="credits">
     <p>&copy; Mangoes | <%= Time.now.year %> All Rights Reserved | Proudly produced, ripen, and maintained fresh by <a href="http://www.johnnyji.com/" target="_blank">Johnny Ji</a></p>

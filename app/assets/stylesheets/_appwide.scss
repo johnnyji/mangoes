@@ -51,11 +51,11 @@
   transform: scale(1.1);
 }
 
-@mixin transition {
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+@mixin transition($time) {
+  -webkit-transition: all $time ease;
+  -moz-transition: all $time ease;
+  -o-transition: all $time ease;
+  transition: all $time ease;
 }
 
 @mixin linear-gradient-top-bottom($color1, $color2) {
@@ -68,6 +68,7 @@
 
 $primary-orange: #D35400;
 $secondary-orange: #F9690E;
+$tertiary-orange: #E67E22;
 $primary-yellow: #FDE3A7;
 $primary-red: #c0392b;
 $secondary-red: #e74c3c;

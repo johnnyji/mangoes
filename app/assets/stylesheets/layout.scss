@@ -28,7 +28,7 @@ header {
     text-align: center;
     a, a:visited, a:focus, a:active {
       @include position-y(relative, 50%);
-      @include transition;
+      @include transition(0.4s);
       display: inline-block;
       color: $primary-yellow;
       font-size: 3em;
@@ -70,12 +70,15 @@ header {
         margin-right: 1em;
         outline: none;
         vertical-align: middle;
+        &:hover {
+          cursor: pointer;
+        }
         .search-icon:before {
           position: relative;
         }
       }
     }
-    .logged-in-user {
+    .header-links {
       @include position-y(relative, 40%);
       display: inline-block;
       right: 0;

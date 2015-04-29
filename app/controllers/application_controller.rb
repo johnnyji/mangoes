@@ -10,8 +10,12 @@ class ApplicationController < ActionController::Base
   rescue ActiveRecord::RecordNotFound
   end
 
-  def previewing_user
-    @previewing_user ||= User.find(session[:preview_user_id]) if session[:preview_user_id]
+  def admin_in_preview_mode
+    if session[:admin_id]
+      @admin_in_preview_mode ||= User.find(session[:admin_id])
+    else
+      false
+    end
   end
 
   def restrict_access
@@ -23,5 +27,4 @@ class ApplicationController < ActionController::Base
 
   helper_method :admin_in_preview_mode
   helper_method :current_user
-  helper_method :previewing_user
 end

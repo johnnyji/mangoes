@@ -1,6 +1,11 @@
-<%= link_to image_tag(movie.image_url(:medium).to_s), movie_path(movie), class: 'movie-image' %>
-<h2><%= link_to movie.title, movie_path(movie) %></h2>
-<h3><%= formatted_date(movie.release_date) %> | <%= movie.average_rating %></h3>
-<h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-<p><%= movie.description %></p>
-<hr>
+<div class="movie-container">
+  <div class="movie-image">
+    <%= link_to image_tag(movie.image_url(:medium).to_s), movie_path(movie) %>
+  </div>
+  <div class="movie-info">
+    <h2 class='title'><%= link_to movie.title, movie_path(movie) %></h2>
+    <h3><%= formatted_date(movie.release_date) %> | <%= movie.average_rating %></h3>
+    <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
+    <p><%= movie.description %></p>
+  </div>
+</div>
