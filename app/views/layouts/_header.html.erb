@@ -1,8 +1,17 @@
 <header>
+
   <div class="header-left">
     <%= link_to "Mangoe<span>s</span>".html_safe, root_path %>
   </div>
+
   <div class="header-right">
+    <div class="search-bar">
+      <%= form_tag search_movies_path, method: :get, class: "search-form" do %>
+        <%= label_tag :query, "Search", class: "search-bar-label" %>
+        <%= search_field_tag :query, nil, placeholder: "Search movie or director", class: "search-bar-input" %>
+        <%= submit_tag "Search" %>
+      <% end %>
+    </div>
     <% if current_user %>
       <p class="logged-in-user">
         <%= current_user.name %> - <%= link_to "Signout", session_path(current_user), method: :delete %>
@@ -11,4 +20,5 @@
       <p><%= link_to "Sign up", new_user_path %> | <%= link_to "Login", new_session_path %></p>
     <% end %>
   </div>
+
 </header>

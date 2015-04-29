@@ -42,7 +42,7 @@ class MoviesController < ApplicationController
   end
 
   def search
-    @movies = Movie.search_title(params[:search])
+    @movies = Movie.search(params[:query])
   end
 
   private

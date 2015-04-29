@@ -16,25 +16,32 @@
 
 //  MIXINS
 
-@mixin position-center {
+@mixin position-center($position, $top, $left) {
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  position: $position;
+  top: $top;
+  left: $left;
 }
 
-@mixin position-x {
+@mixin position-x($position, $left) {
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
+  position: $position;
+  left: $left;
 }
 
-@mixin position-y {
+@mixin position-y($position, $top) {
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
+  position: $position;
+  top: $top;
 }
 
 @mixin scale-up {
@@ -59,11 +66,12 @@
 }
 //  VARIABLES
 
-$primary-yellow: #F5AB35;
-$secondary-yellow: #F9BF3B;
+$primary-orange: #D35400;
+$secondary-orange: #F9690E;
+$primary-yellow: #FDE3A7;
 $primary-red: #c0392b;
 $secondary-red: #e74c3c;
-$primary-green: #1E824C;
+$primary-green: #3FC380;
 $secondary-green: #27ae60;
 $light-gray: #DBDBDB;
 $white : #FFF;
@@ -71,6 +79,7 @@ $gray: #BFBFBF;
 $medium-gray: #666;
 $dark-gray: #222;
 $text-gray: #464646;
+$smoke-white: #ECECEC;
 
 // APP WIDE
 

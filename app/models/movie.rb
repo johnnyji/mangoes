@@ -11,10 +11,7 @@ class Movie < ActiveRecord::Base
 
   before_save :titleize_movie
 
-  def self.search_title(input)
-    search_terms = "%#{input}%"
-    find(:all, conditions: ['title LIKE ?', search_terms])
-  end
+  scope :search, lambda { |term| where(['lower(title) LIKE ? OR lower(director) LIKE ?', "%#{term.downcase}%", "%#{term.downcase}%"]) }
 
   def average_rating
     if reviews.count > 0

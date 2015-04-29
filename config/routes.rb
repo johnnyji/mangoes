@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
   root "movies#index"
+  match "admin/preview_user/:id", to: "admin/users#preview_user", as: "admin_preview_user", via: :get
+  match "admin/back_as_admin", to: "admin/users#back_as_admin", as: "back_as_admin", via: :get
   
   resources :movies do
+    collection do
+      get 'search'
+    end
     resources :reviews, only: [:new, :create]
   end
 
@@ -11,9 +16,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :session, only: [:new, :create, :destroy]
 
-  match "movies/search", to: "movies#search", as: "movies_search", via: :get
-  match "admin/preview_user/:id", to: "admin/users#preview_user", as: "admin_preview_user", via: :get
-  match "admin/back_as_admin", to: "admin/users#back_as_admin", as: "back_as_admin", via: :get
 end

@@ -16,7 +16,7 @@ header {
   top: 0;
   height: 90px;
   z-index: 10;
-  @include linear-gradient-top-bottom($primary-yellow, $secondary-yellow);
+  @include linear-gradient-top-bottom($primary-orange, $secondary-orange);
   .header-left {
     position: relative;
     float: left;
@@ -27,11 +27,10 @@ header {
     height: 100%;
     text-align: center;
     a, a:visited, a:focus, a:active {
-      @include position-y;
+      @include position-y(relative, 50%);
       @include transition;
-      position: absolute;
-      top: 50%;
-      color: $primary-red;
+      display: inline-block;
+      color: $primary-yellow;
       font-size: 3em;
       font-weight: 600;
       letter-spacing: -2px;
@@ -41,7 +40,7 @@ header {
       }
     }
     a:hover {
-      color: $secondary-red;
+      color: $white;
       span {
         color: $secondary-green;
       }
@@ -55,10 +54,30 @@ header {
     right: 0;
     height: 100%;
     right: 1em;
+    .search-bar {
+      @include position-y(relative, 50%);
+      display: inline-block;
+      margin-right: 1em;
+      .search-bar-label {
+        color: $white;
+        font-size: 1.2em;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+      .search-bar-input {
+        font-weight: 300;
+        height: 35px;
+        border-style: none;
+        width: 150px;
+        font-size: 1.1em;
+        outline: none;
+        &:focus {
+        }
+      }
+    }
     .logged-in-user {
-      @include position-y;
-      position: absolute;
-      top: 50%;
+      @include position-y(relative, 45%);
+      display: inline-block;
       right: 0;
       margin: 0;
       font-size: 110%;
@@ -111,10 +130,8 @@ footer {
     }
   }
   .credits {
-    position: absolute;
-    @include position-x;
+    @include position-x(absolute, 50%);
     width: 100%;
-    left: 50%;
     bottom: 0;
     text-align: center;
     @include medium-viewport {
