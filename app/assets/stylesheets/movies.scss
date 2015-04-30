@@ -1,6 +1,25 @@
 @import "appwide";
 // MOVIES INDEX
 
+.welcome-message {
+  margin: 75px auto;
+  text-align: center;
+  font-size: 1.3em;
+  a {
+    @include transition(0.3s);
+    color: $primary-orange;
+    &:hover {
+      color: $tertiary-orange;
+    }
+  }  
+  h1 {
+    margin-bottom: 0;
+  }
+  h4 {
+    margin-top: 0.5em;
+  }
+}
+
 .submit-movie {
   margin: 0 auto 3em auto;
   text-align: center;
@@ -26,27 +45,43 @@
     display: inline-block;
     min-height: 100%;
   }
+  .original-poster-links {
+    position: absolute;
+    top: 0.5em;
+    right: 1em;
+    margin: 0;
+  }
   .movie-info {
     position: relative;
     display: inline-block;
     vertical-align: top;
     min-height: 100%;
+    max-width: 400px;
     margin-left: 1em;
+    a {
+      @include transition(0.3s);
+      color: $primary-orange;
+      &:hover {
+        color: $tertiary-orange;
+      }
+    }
     .title {
       position: relative;
       margin: 0;
       top: 0;
-      a {
-        @include transition(0.3s);
-        color: $primary-orange;
-        &:hover {
-          color: $tertiary-orange;
-        }
+      i {
+        font-size: 0.85em;
       }
+    }
+    .description {
+      font-weight: 300;
     }
     .subtitle {
       margin: 0;
       font-weight: 300;
+      p {
+        margin: 0;
+      }
     }
   }
 }
@@ -62,7 +97,8 @@
 
 // NEW MOVIE PAGE
 
-.new-movie-header {
+.new-movie-header,
+.edit-movie-header {
   text-align: center;
   font-size: 2em;
 }

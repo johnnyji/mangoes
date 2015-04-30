@@ -1,6 +1,16 @@
-<div class="submit-movie">
-  <%= link_to "Submit a movie!", new_movie_path %>
-</div>
+<% if current_user %>
+  <div class="welcome-message">
+    <h1>Welcome back, <%= link_to current_user.name, user_path(current_user) %></h1>
+    <h4>If you feel like watching a movie, our pick of the day for you is <%= link_to @movie_of_day.title, movie_path(@movie_of_day) %></h4>
+  </div>
+  <div class="submit-movie">
+    <%= link_to "Submit a movie!", new_movie_path %>
+  </div>
+<% else %>
+  <div class="submit-movie">
+    <%= link_to "Sign Up", new_user_path %>
+  </div>
+<% end %>
 
 <% @movies.each do |movie| %>
   <%= render partial: 'movies/partials/movie', locals: { movie: movie } %>

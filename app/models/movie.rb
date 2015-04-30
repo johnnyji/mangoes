@@ -1,7 +1,8 @@
 class Movie < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   has_many :reviews
-
+  belongs_to :user
+  
   validates :title, presence: { message: "The title can't be blank!" }, uniqueness: { message: "This movie already exists on our site!"}
   validates :director, presence: { message: "Director can't be blank!" }
   validates :runtime_in_minutes, numericality: { only_integer: true }
@@ -16,14 +17,15 @@ class Movie < ActiveRecord::Base
     if reviews.count > 0
       "#{reviews.sum(:rating_out_of_ten) / reviews.size}/10"
     else
-      "No reviews yet"
+      ""
     end
   end
 
   private
 
   def titleize_movie
-    title.titleize
+    title = title.titleize
+    direttor = director.titleize
   end
 
 end

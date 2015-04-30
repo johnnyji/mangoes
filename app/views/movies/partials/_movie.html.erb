@@ -1,11 +1,22 @@
 <div class="movie-container">
+  <h3 class="original-poster-links">
+    <%= link_to fa_icon("remove"), edit_movie_path(movie), data: { confirm: "Delete #{movie.title}?" } %>
+  </h3>
   <div class="movie-image">
     <%= link_to image_tag(movie.image_url(:medium).to_s), movie_path(movie) %>
   </div>
   <div class="movie-info">
-    <h2 class='title'><%= link_to movie.title, movie_path(movie) %></h2>
-    <h4 class='subtitle'><%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-    <h3><%= formatted_date(movie.release_date) %> | <%= movie.average_rating %></h3>
-    <p><%= movie.description %></p>
+    <h2 class='title'>
+      <%= link_to movie.title, movie_path(movie) %>&nbsp;
+      <%= link_to fa_icon("edit"), edit_movie_path(movie) %>
+    </h2>
+    <h4 class='subtitle'>
+      <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes
+      <p>Release Date: <%= formatted_date(movie.release_date) %></p>
+    </h4>
+    <p class='description'><%= movie.description %></p>
+    <h3>
+      <%= link_to pluralize(movie.reviews.count, 'reviews'), movie_path(movie) %>
+    </h3>
   </div>
 </div>

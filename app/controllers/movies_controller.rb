@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
   
   def index
     @movies = Movie.all.order("created_at DESC")
+    @movie_of_day = Movie.offset(rand(Movie.count)).first
   end
 
   def show

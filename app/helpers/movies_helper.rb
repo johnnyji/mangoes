@@ -11,4 +11,8 @@ module MoviesHelper
   def formatted_date(date)
     date.strftime("%b %d, %Y")
   end
+
+  # def original_poster(movie)
+  #   current_user == movie.
+  # end
 end

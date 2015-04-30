@@ -10,9 +10,11 @@
   <%= render partial: "layouts/header" %>
 
   <section>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: key.to_s) %>
-    <% end %>
+    <div class="flash-message">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: key.to_s) %>
+      <% end %>
+    </div>
     <%= yield %>
   </section>
 

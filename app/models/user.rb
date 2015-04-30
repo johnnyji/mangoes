@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :reviews
+  has_many :movies
   has_secure_password
 
   validates :password, presence: true, on: :create
@@ -13,7 +14,7 @@ class User < ActiveRecord::Base
   private
 
   def capitalize_names
-    first_name.capitalize
-    last_name.capitalize
+    first_name = first_name.capitalize
+    last_name = last_name.capitalize
   end
 end

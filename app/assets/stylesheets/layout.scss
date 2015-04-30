@@ -67,7 +67,6 @@ header {
         border-style: none;
         background-color: inherit;
         font-size: 1.7em;
-        color: $primary-yellow;
         margin-right: 1em;
         outline: none;
         vertical-align: middle;
@@ -77,6 +76,7 @@ header {
         }
         i {
           @include transition(0.3s);
+          color: $primary-yellow;
           position: relative;
           &:hover {
             color: $white;
