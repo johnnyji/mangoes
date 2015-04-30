@@ -9,6 +9,6 @@ module MoviesHelper
   end
 
   def formatted_date(date)
-    date.strftime("%b, %d, %Y")
+    date.strftime("%b %d, %Y")
   end
 end

@@ -1,3 +1,38 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "appwide";
+
+.no-reviews {
+  position: relative;
+  text-align: center;
+}
+
+.user-container {
+  @include position-x(relative, 50%);
+  width: 150%;
+  .left {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 40%;
+    margin-right: 5%;
+    background-color: $smoke-white;
+  }
+  .right {
+    position: relative;
+    display: inline-block;
+    background-color: $smoke-white;
+    width: 40%;
+    .user-review-container {
+      padding: 0.5em 1em;
+      .review-title {
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+      .post-date {
+        margin-top: 0;
+      }
+      .review-text {
+
+      }
+    }
+  }
+}

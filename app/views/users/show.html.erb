@@ -1,0 +1,13 @@
+<div class="user-container">
+  <div class="left">
+    <h1><%= current_user.name %></h1>
+    <p>Account Settings</p>
+  </div>
+  <div class="right">
+    <% if current_user.reviews.exists? %>
+      <%= render partial: 'users/partials/review' %>
+    <% else %>
+      <h1 class="no-reviews">You haven't posted any movies yet!</h1>
+    <% end %>
+  </div>
+</div>

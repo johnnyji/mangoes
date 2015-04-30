@@ -50,7 +50,7 @@ header {
     right: 0;
     height: 100%;
     right: 1em;
-    color: $white;
+    color: $primary-yellow;
     .search-bar {
       @include position-y(relative, 50%);
       display: inline-block;
@@ -73,9 +73,14 @@ header {
         vertical-align: middle;
         &:hover {
           cursor: pointer;
+          color: $white;
         }
-        .search-icon:before {
+        i {
+          @include transition(0.3s);
           position: relative;
+          &:hover {
+            color: $white;
+          }
         }
       }
     }

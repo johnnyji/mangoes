@@ -1,0 +1,7 @@
+<% current_user.reviews.each do |review| %>
+  <div class="user-review-container">
+    <p class="review-title">Review for: <%= link_to review.movie.title, movie_path(review.movie) %></p>
+    <p class="post-date"><%= formatted_date(review.created_at) %></p>
+    <p class="review-text"><%= review.text %></p>
+  </div>
+<% end %>
