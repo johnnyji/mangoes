@@ -2,12 +2,11 @@ class Movie < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   has_many :reviews
 
-  validates :title, presence: true, uniqueness: true
-  validates :director, presence: true
+  validates :title, presence: { message: "The title can't be blank!" }, uniqueness: { message: "This movie already exists on our site!"}
+  validates :director, presence: { message: "Director can't be blank!" }
   validates :runtime_in_minutes, numericality: { only_integer: true }
-  validates :description, presence: true
-  validates :image, presence: true
-  validate :release_date_is_in_the_future
+  validates :description, presence: { message: "Give this movie a description" }
+  validates :image, presence: { message: "Please attach an image" }
 
   before_save :titleize_movie
 
@@ -27,9 +26,4 @@ class Movie < ActiveRecord::Base
     title.titleize
   end
 
-  def release_date_is_in_the_future
-    if release_date.present?
-      errors.add(:release_date, 'should probably be in the future') if release_date < Date.today
-    end
-  end
 end

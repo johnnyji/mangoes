@@ -1,21 +1,23 @@
-<%= form_for @movie, html: { multipart: true } do |f| %>
-  <%= @movie.errors[:title].first %>
+<%= form_for @movie, html: { multipart: true, class: "movie-form" } do |f| %>
+
+  <div class="validation-error"><%= @movie.errors[:title].first %></div>
   <%= f.text_field :title, placeholder: "Title" %><br>
 
-  <%= @movie.errors[:release_date].first %>
+  <div class="validation-error"><%= @movie.errors[:release_date].first %></div>
   <%= f.text_field :release_date, placeholder: "Release date" %><br>
 
-  <%= @movie.errors[:director].first %>
+  <div class="validation-error"><%= @movie.errors[:director].first %></div>
   <%= f.text_field :director, placeholder: "Director" %><br>
 
-  <%= @movie.errors[:runtime_in_minutes].first %>
+  <div class="validation-error"><%= @movie.errors[:runtime_in_minutes].first %></div>
   <%= f.text_field :runtime_in_minutes, placeholder: "Runtime in minutes" %><br>
 
-  <%= @movie.errors[:image].first %>
+  <div class="validation-error"><%= @movie.errors[:image].first %></div>
   <%= f.label :image, value: "Upload an image" %>
   <%= f.file_field :image %><br>
 
-  <%= @movie.errors[:description].first %>
+  <div class="validation-error"><%= @movie.errors[:description].first %></div>
   <%= f.text_area :description, placeholder: "Description" %><br>
+
   <%= f.submit %>
 <% end %>

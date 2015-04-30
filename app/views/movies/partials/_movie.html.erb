@@ -4,8 +4,8 @@
   </div>
   <div class="movie-info">
     <h2 class='title'><%= link_to movie.title, movie_path(movie) %></h2>
+    <h4 class='subtitle'><%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
     <h3><%= formatted_date(movie.release_date) %> | <%= movie.average_rating %></h3>
-    <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
     <p><%= movie.description %></p>
   </div>
 </div>

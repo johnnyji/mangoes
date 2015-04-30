@@ -64,6 +64,23 @@
   background: -moz-linear-gradient($color1, $color2); /* For Firefox 3.6 to 15 */
   background: linear-gradient($color1, $color2); /* Standard syntax (must be last) */
 }
+
+@mixin input-focus-highlight($color) {
+  &:focus {
+    outline: none;
+    border: 1px solid $color;
+    box-shadow: 0 0 5px $color;
+  }
+}
+
+@mixin submit-button-colors {
+  background-color: $primary-orange;
+  border-bottom: 5px solid $tertiary-orange;
+  &:hover {
+    background-color: $primary-green;
+    border-bottom: 5px solid $secondary-green;
+  }
+}
 //  VARIABLES
 
 $primary-orange: #D35400;

@@ -5,24 +5,20 @@
   margin: 0 auto 3em auto;
   text-align: center;
   a {
+    @include submit-button-colors;
     @include transition(0.3s);
     font-size: 1.5em;
     padding: 5px 15px;
     color: $white;
-    background-color: $primary-orange;
-    border-bottom: 5px solid $tertiary-orange;
-    &:hover {
-      background-color: $primary-green;
-      border-bottom: 5px solid $secondary-green;
-    }
   }
 }
 
 .movie-container {
   position: relative;
   top: 0;
+  min-height: 100%;
   height: 100%;
-  padding: 0.5em;
+  padding: 0.8em;
   margin: 0.5em;
   background-color: $smoke-white;
   .movie-image {
@@ -33,8 +29,9 @@
   .movie-info {
     position: relative;
     display: inline-block;
+    vertical-align: top;
     min-height: 100%;
-    margin-left: 10px;
+    margin-left: 1em;
     .title {
       position: relative;
       margin: 0;
@@ -47,6 +44,10 @@
         }
       }
     }
+    .subtitle {
+      margin: 0;
+      font-weight: 300;
+    }
   }
 }
 
@@ -56,4 +57,12 @@
   position: relative;
   margin: 0 auto;
   text-align: center;
+}
+
+
+// NEW MOVIE PAGE
+
+.new-movie-header {
+  text-align: center;
+  font-size: 2em;
 }

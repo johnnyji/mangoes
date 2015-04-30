@@ -50,6 +50,7 @@ header {
     right: 0;
     height: 100%;
     right: 1em;
+    color: $white;
     .search-bar {
       @include position-y(relative, 50%);
       display: inline-block;
@@ -66,7 +67,7 @@ header {
         border-style: none;
         background-color: inherit;
         font-size: 1.7em;
-        color: $white;
+        color: $primary-yellow;
         margin-right: 1em;
         outline: none;
         vertical-align: middle;
@@ -85,6 +86,13 @@ header {
       margin: 0;
       font-size: 110%;
       font-weight: 600;
+      a {
+        @include transition(0.3s);
+        color: $primary-yellow;
+        &:hover {
+          color: $white;
+        }
+      }
     }
   }
 }
@@ -95,7 +103,11 @@ header {
 section {
   position: relative;
   margin: 50px auto;
-  min-height: 100vh;
+  min-height: -webkit-calc(100vh - 240px);
+  min-height: -moz-calc(100vh - 240px);
+  min-height: -ms-calc(100vh - 240px);
+  min-height: -o-calc(100vh - 240px);
+  min-height: calc(100vh - 240px);
   height: auto;
   width: 700px;
   @include medium-viewport {

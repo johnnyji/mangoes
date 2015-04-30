@@ -1,9 +1,8 @@
 $(function() {
   var $header = $('header');
   window.stickyHeader = false;
-  // why is this only firing on page refresh? however, code is running
+
   $(window).on('scroll', function(e) {
-    console.log(window.stickyHeader);
     if ($(this).scrollTop() > 1) {
       if (!window.stickyHeader) {
         stickHeader($header);

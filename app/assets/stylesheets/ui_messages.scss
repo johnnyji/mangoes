@@ -10,5 +10,9 @@
 .alert {
   margin: 0 auto;
   text-align: center;
-  color: green;
+  color: $secondary-red;
+}
+
+.validation-error {
+  color: $primary-red;
 }
