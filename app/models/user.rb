@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   private
 
   def capitalize_names
-    first_name = first_name.capitalize
-    last_name = last_name.capitalize
+    self.first_name = self.first_name.capitalize
+    self.last_name = self.last_name.capitalize
   end
 end

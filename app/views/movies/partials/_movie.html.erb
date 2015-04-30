@@ -1,6 +1,6 @@
 <div class="movie-container">
   <h3 class="original-poster-links">
-    <%= link_to fa_icon("remove"), edit_movie_path(movie), data: { confirm: "Delete #{movie.title}?" } %>
+    <%= link_to fa_icon("remove"), movie_path(movie), method: :delete, data: { confirm: "Delete #{movie.title}?" } %>
   </h3>
   <div class="movie-image">
     <%= link_to image_tag(movie.image_url(:medium).to_s), movie_path(movie) %>

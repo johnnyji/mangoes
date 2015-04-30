@@ -38,7 +38,9 @@ class MoviesController < ApplicationController
   end
 
   def destroy
+    title = @movie.title
     @movie.destroy
+    flash.notice = "#{title} has been deleted."
     redirect_to movies_path
   end
 

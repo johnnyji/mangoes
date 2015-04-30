@@ -1,6 +1,6 @@
 class Movie < ActiveRecord::Base
   mount_uploader :image, ImageUploader
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   belongs_to :user
   
   validates :title, presence: { message: "The title can't be blank!" }, uniqueness: { message: "This movie already exists on our site!"}
@@ -24,8 +24,8 @@ class Movie < ActiveRecord::Base
   private
 
   def titleize_movie
-    title = title.titleize
-    direttor = director.titleize
+    self.title = self.title.titleize
+    self.director = self.director.titleize
   end
 
 end
