@@ -1,4 +1,4 @@
-<%= form_for @movie, html: { multipart: true, class: "movie-form" } do |f| %>
+<%= form_for [current_user, @movie], html: { multipart: true, class: "movie-form" } do |f| %>
 
   <div class="validation-error"><%= @movie.errors[:title].first %></div>
   <%= f.text_field :title, placeholder: "Title" %><br>

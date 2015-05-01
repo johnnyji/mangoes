@@ -40,16 +40,16 @@
   padding: 0.8em;
   margin: 0.5em;
   background-color: $smoke-white;
+  .original-poster-links {
+    position: absolute;
+    top: 0.8em;
+    right: 1em;
+    margin: 0;
+  }
   .movie-image {
     position: relative;
     display: inline-block;
     min-height: 100%;
-  }
-  .original-poster-links {
-    position: absolute;
-    top: 0.5em;
-    right: 1em;
-    margin: 0;
   }
   .movie-info {
     position: relative;

@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     resources :users, except: [:new, :create]
   end
 
+  resources :users do
+    resources :movies, only: [:new, :create]
+  end
+
   resources :users
   resources :session, only: [:new, :create, :destroy]
 

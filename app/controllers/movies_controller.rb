@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+  before_action :find_user, only: [:new, :create]
   before_action :find_movie, only: [:show, :edit, :update, :delete, :destroy]
   
   def index
@@ -11,14 +12,16 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @movie = Movie.new
+    @movie = @user.movies.build
   end
 
   def create
-    @movie = Movie.new(movie_params)
+    binding.pry
+    @movie = @user.movies.build(movie_params)
     if @movie.save
-      redirect_to movies_path
+      redirect_to movies_path, notice: "#{@movie.title} succesfully created!"
     else
+      flash.now[:notice] = "Oops, something went wrong"
       render :new
     end
   end
@@ -52,6 +55,11 @@ class MoviesController < ApplicationController
 
   def find_movie
     @movie = Movie.find(params[:id])
+  end
+
+  def find_user
+    binding.pry
+    @user = User.find(params[:user_id])
   end
 
   def movie_params

@@ -4,7 +4,7 @@
     <h4>If you feel like watching a movie, might we suggest to you <%= link_to @movie_of_day.title, movie_path(@movie_of_day) %></h4>
   </div>
   <div class="submit-movie">
-    <%= link_to "Submit a movie!", new_movie_path %>
+    <%= link_to "Submit a movie!", new_user_movie_path(current_user) %>
   </div>
 <% else %>
   <div class="submit-movie">
