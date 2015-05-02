@@ -102,3 +102,48 @@
   text-align: center;
   font-size: 2em;
 }
+
+// SHOW MOVIE PAGE
+
+.show-movie-image {
+  position: relative;
+  display: inline-block;
+}
+
+.show-movie-info {
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+  width: 380px;
+  vertical-align: top;
+  .show-movie-title {
+    margin-top: 0;
+  }
+  .show-movie-release-date {
+
+  }
+}
+
+.new-review-form {
+  margin-top: 1em;
+}
+
+.review-form {
+  textarea {
+    width: 300px;
+    height: 150px;
+  }
+  input[type=submit] {
+    margin-top: 1em;
+    border-style: none;
+    font-size: 1.2em;
+    padding: 5px 15px;
+    font-weight: 600;
+    color: $white;
+    @include transition(0.3s);
+    @include submit-button-colors;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,9 +1,11 @@
 
-<%= link_to image_tag(@movie.image_url(:large).to_s), movie_path(@movie), class: 'movie-image' %>
-<h1 class="show-movie-title"><%= @movie.title %></h1>
-<h3 class="show-movie-release-date"><%= formatted_date(@movie.release_date) %></h3>
-<p class="show-movie-director"><%= @movie.director %></p>
-<p class="show-movie-description"><%= @movie.description %></p>
+<%= link_to image_tag(@movie.image_url(:large).to_s), movie_path(@movie), class: 'show-movie-image' %>
+<div class="show-movie-info">
+  <h1 class="show-movie-title"><%= @movie.title %></h1>
+  <h4 class="show-movie-release-date"><%= formatted_date(@movie.release_date) %></h4>
+  <p class="show-movie-director"><%= @movie.director %></p>
+  <p class="show-movie-description"><%= @movie.description %></p>
+</div>
 
 
 <% if current_user %>
@@ -11,7 +13,9 @@
     <%= render partial: "reviews/partials/form" %>
   </div>
 <% else %>
-  <p><%= link_to "Sign Up", new_user_path %> or <%= link_to "Login", new_session_path %> to write a review!</p>
+  <div class="new-review-form">
+    <%= link_to "Sign Up", new_user_path %> or <%= link_to "Login", new_session_path %> to write a review!
+  </div>
 <% end %>
 
 <% @movie.reviews.each do |review| %>
